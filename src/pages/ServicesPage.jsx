@@ -8,7 +8,6 @@ import {
   MonitorSmartphone,
   ArrowRight,
   CheckCircle,
-  Star,
   Phone,
 } from "lucide-react";
 
@@ -24,8 +23,8 @@ const services = [
   {
     title: "Internet Installation",
     description:
-      "Fast fibre internet installation for homes, apartments, schools and businesses.",
-    icon: <Wifi size={38} />,
+      "Fast and reliable fibre internet installation for homes, apartments, schools, offices and businesses in Thika and across Kenya.",
+    icon: <Wifi size={42} />,
     features: [
       "High-Speed Fibre",
       "Wi-Fi Coverage",
@@ -38,8 +37,8 @@ const services = [
   {
     title: "CCTV Installation",
     description:
-      "HD surveillance systems with remote monitoring from anywhere.",
-    icon: <Camera size={38} />,
+      "Professional CCTV surveillance systems with HD cameras, recording and remote monitoring for homes and businesses.",
+    icon: <Camera size={42} />,
     features: [
       "HD Cameras",
       "Remote Viewing",
@@ -52,8 +51,8 @@ const services = [
   {
     title: "Electric Fence",
     description:
-      "Professional electric fencing for homes, schools and businesses.",
-    icon: <Shield size={38} />,
+      "Professional electric fence installation for homes, schools, businesses and institutions requiring reliable perimeter security.",
+    icon: <Shield size={42} />,
     features: [
       "Alarm Integration",
       "Perimeter Security",
@@ -66,8 +65,8 @@ const services = [
   {
     title: "Access Control",
     description:
-      "Fingerprint, RFID card and smart access control systems.",
-    icon: <Fingerprint size={38} />,
+      "Modern fingerprint, RFID card and smart access control systems for secure and controlled entry.",
+    icon: <Fingerprint size={42} />,
     features: [
       "Fingerprint Access",
       "RFID Cards",
@@ -80,8 +79,8 @@ const services = [
   {
     title: "Networking",
     description:
-      "Structured cabling, enterprise Wi-Fi and networking solutions.",
-    icon: <Network size={38} />,
+      "Structured cabling, enterprise Wi-Fi and professional networking solutions for homes, offices and institutions.",
+    icon: <Network size={42} />,
     features: [
       "Structured Cabling",
       "Enterprise Wi-Fi",
@@ -94,8 +93,8 @@ const services = [
   {
     title: "ICT Consultancy",
     description:
-      "ICT consultancy, maintenance and professional technical support.",
-    icon: <MonitorSmartphone size={38} />,
+      "Professional ICT consultancy, maintenance and technical support to help businesses and institutions use technology effectively.",
+    icon: <MonitorSmartphone size={42} />,
     features: [
       "IT Support",
       "Maintenance",
@@ -116,14 +115,35 @@ const reasons = [
 ];
 
 export default function ServicesPage() {
+  /* =========================
+     SEO
+  ========================= */
+
+  document.title =
+    "ICT Services in Thika | Internet, CCTV & Security | Ogenix Technologies";
+
+  const description =
+    "Ogenix Technologies provides professional internet installation, CCTV, electric fence, access control, networking and ICT consultancy services in Thika, Kiambu and across Kenya.";
+
+  let metaDescription = document.querySelector(
+    'meta[name="description"]'
+  );
+
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+
+  metaDescription.setAttribute("content", description);
+
   return (
     <>
-      <NavbarPage />
-
-      {/* Hero */}
+      {/* =========================
+          HERO
+      ========================= */}
 
       <section className="pt-36 pb-24 bg-gradient-to-br from-[#031B4E] via-[#062B78] to-[#0A53C1]">
-
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           <motion.span
@@ -137,6 +157,7 @@ export default function ServicesPage() {
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             className="text-5xl lg:text-7xl font-black text-white mt-5"
           >
             Smart Technology Solutions
@@ -147,12 +168,13 @@ export default function ServicesPage() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: .3 }}
+            transition={{ delay: 0.3 }}
             className="text-blue-100 text-xl mt-8 max-w-3xl mx-auto leading-9"
           >
-            We provide dependable Internet, CCTV, Electric Fence,
-            Access Control, Networking and ICT Consultancy services
-            using world-class equipment and experienced technicians.
+            Ogenix Technologies provides dependable internet,
+            CCTV, electric fence, access control, networking and
+            ICT consultancy services for homes, businesses,
+            schools and institutions in Thika, Kiambu and across Kenya.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-5 mt-12">
@@ -174,14 +196,32 @@ export default function ServicesPage() {
           </div>
 
         </div>
-
       </section>
 
-      {/* Services */}
+      {/* =========================
+          SERVICES
+      ========================= */}
 
       <section className="py-24 bg-slate-50">
-
         <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-16">
+
+            <span className="uppercase tracking-[5px] text-blue-600 font-semibold">
+              What We Offer
+            </span>
+
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mt-5">
+              Professional ICT & Security Services
+            </h2>
+
+            <p className="text-slate-600 max-w-3xl mx-auto mt-6 leading-8">
+              From reliable internet connectivity to advanced security
+              systems, Ogenix Technologies delivers professional technology
+              solutions designed for homes, businesses and institutions.
+            </p>
+
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -193,6 +233,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
+                  duration: 0.6,
                   delay: index * 0.08,
                 }}
                 whileHover={{
@@ -201,22 +242,29 @@ export default function ServicesPage() {
                 className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-200"
               >
 
+                {/* Service Icon Header */}
+
                 <div className="relative h-60 bg-gradient-to-br from-[#031B4E] via-[#0A53C1] to-cyan-500 flex items-center justify-center">
 
-  {service.popular && (
-    <div className="absolute top-5 right-5 bg-white text-blue-700 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-semibold shadow">
-      <Star size={14} />
-      Popular
-    </div>
-  )}
+                  <div className="absolute inset-0 bg-black/10" />
 
-  <div className="w-24 h-24 rounded-3xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-xl">
-    {service.icon}
-  </div>
+                  <div className="relative w-24 h-24 rounded-3xl bg-white/15 backdrop-blur-xl border border-white/20 flex items-center justify-center text-cyan-300">
 
-</div>
+                    {service.icon}
 
-<div className="p-8">
+                  </div>
+
+                  {service.popular && (
+                    <span className="absolute top-5 right-5 bg-cyan-400 text-[#031B4E] px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                      Popular
+                    </span>
+                  )}
+
+                </div>
+
+                {/* Service Content */}
+
+                <div className="p-8">
 
                   <h2 className="text-2xl font-bold text-slate-900">
                     {service.title}
@@ -227,25 +275,26 @@ export default function ServicesPage() {
                   </p>
 
                   <div className="mt-6 space-y-3">
-                                      {service.features.map((feature, i) => (
 
-                    <div
-                      key={i}
-                      className="flex items-center gap-3"
-                    >
+                    {service.features.map((feature, i) => (
 
-                      <CheckCircle
-                        size={18}
-                        className="text-green-600"
-                      />
+                      <div
+                        key={i}
+                        className="flex items-center gap-3"
+                      >
 
-                      <span className="text-slate-700">
-                        {feature}
-                      </span>
+                        <CheckCircle
+                          size={18}
+                          className="text-green-600 shrink-0"
+                        />
 
-                    </div>
+                        <span className="text-slate-700">
+                          {feature}
+                        </span>
 
-                  ))}
+                      </div>
+
+                    ))}
 
                   </div>
 
@@ -254,9 +303,7 @@ export default function ServicesPage() {
                     className="inline-flex items-center gap-2 text-blue-600 font-semibold mt-8 hover:gap-4 transition-all"
                   >
                     Learn More
-
                     <ArrowRight size={18} />
-
                   </Link>
 
                 </div>
@@ -268,10 +315,11 @@ export default function ServicesPage() {
           </div>
 
         </div>
-
       </section>
 
-      {/* Why Choose Us */}
+      {/* =========================
+          WHY CHOOSE US
+      ========================= */}
 
       <section className="py-24 bg-white">
 
@@ -295,7 +343,7 @@ export default function ServicesPage() {
             <p className="text-slate-500 mt-6 max-w-3xl mx-auto leading-8">
               We combine quality equipment, experienced technicians,
               professional workmanship and outstanding customer support
-              to deliver ICT solutions you can depend on.
+              to deliver ICT and security solutions you can depend on.
             </p>
 
           </motion.div>
@@ -333,11 +381,15 @@ export default function ServicesPage() {
 
       </section>
 
-      {/* Technology Partners */}
+      {/* =========================
+          TECHNOLOGY PARTNERS
+      ========================= */}
 
       <Partners />
 
-      {/* Installation Process */}
+      {/* =========================
+          INSTALLATION PROCESS
+      ========================= */}
 
       <section className="py-24 bg-slate-50">
 
@@ -353,6 +405,12 @@ export default function ServicesPage() {
               Simple & Professional Workflow
             </h2>
 
+            <p className="text-slate-600 mt-6 max-w-2xl mx-auto leading-8">
+              We follow a structured process to make sure every
+              Ogenix Technologies installation is completed safely,
+              professionally and to the customer's requirements.
+            </p>
+
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -366,6 +424,12 @@ export default function ServicesPage() {
 
               <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.1,
+                }}
                 whileHover={{ y: -8 }}
                 className="bg-white rounded-3xl shadow-lg p-8 text-center"
               >
@@ -377,9 +441,7 @@ export default function ServicesPage() {
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900">
-
                   {step}
-
                 </h3>
 
               </motion.div>
@@ -392,7 +454,9 @@ export default function ServicesPage() {
 
       </section>
 
-      {/* CTA */}
+      {/* =========================
+          CTA
+      ========================= */}
 
       <section className="py-24 bg-gradient-to-r from-[#031B4E] via-[#062B78] to-[#0A53C1]">
 
@@ -408,10 +472,9 @@ export default function ServicesPage() {
           </motion.h2>
 
           <p className="text-blue-100 text-xl mt-8 max-w-3xl mx-auto leading-9">
-            Whether you need Internet Installation, CCTV,
-            Electric Fence, Networking or Access Control,
-            our experts are ready to help you choose the
-            right solution.
+            Whether you need internet installation, CCTV,
+            electric fencing, networking, access control or
+            ICT consultancy, our experts are ready to help.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-5 mt-12">
@@ -420,22 +483,16 @@ export default function ServicesPage() {
               to="/contact"
               className="inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 px-10 py-4 rounded-xl text-white font-semibold transition duration-300 hover:scale-105"
             >
-
               Request Free Quote
-
               <ArrowRight size={20} />
-
             </Link>
 
             <a
               href="tel:+254110405854"
               className="inline-flex items-center justify-center gap-3 border-2 border-white px-10 py-4 rounded-xl text-white font-semibold hover:bg-white hover:text-[#041E5A] transition duration-300"
             >
-
               <Phone size={20} />
-
               Call +254 110 405 854
-
             </a>
 
           </div>
@@ -443,6 +500,10 @@ export default function ServicesPage() {
         </div>
 
       </section>
+
+      {/* =========================
+          FOOTER
+      ========================= */}
 
       <Footer />
       <WhatsAppButton />

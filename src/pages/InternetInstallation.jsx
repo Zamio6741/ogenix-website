@@ -13,7 +13,6 @@ import {
 
 import { Link } from "react-router-dom";
 
-import NavbarPage from "../components/NavbarPage";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import ScrollTop from "../components/ScrollTop";
@@ -46,60 +45,84 @@ const brands = [
 
 const faqs = [
   {
-    question: "How long does installation take?",
+    question: "How long does internet installation take?",
     answer:
-      "Most residential installations take between 2 and 4 hours depending on the property.",
+      "Most residential installations take between 2 and 4 hours depending on the property, network requirements and site conditions.",
   },
   {
     question: "Do you offer support after installation?",
     answer:
-      "Yes. We provide configuration assistance and technical support after installation.",
+      "Yes. Ogenix Technologies provides configuration assistance and technical support after installation to help keep your connection reliable.",
   },
   {
     question: "Do you install internet for businesses?",
     answer:
-      "Yes. We provide complete networking solutions for offices, schools, hotels and commercial buildings.",
+      "Yes. We provide complete internet and networking solutions for offices, schools, hotels, apartments and commercial buildings.",
+  },
+  {
+    question: "Where do you provide internet installation services?",
+    answer:
+      "Ogenix Technologies is based in Thika and provides professional internet installation and networking services in Thika, Kiambu and other locations across Kenya.",
   },
 ];
 
 export default function InternetInstallation() {
+  /* =========================
+     SEO
+  ========================= */
+
+  document.title =
+    "Internet Installation in Thika | Fibre & Wi-Fi | Ogenix Technologies";
+
+  const description =
+    "Professional internet installation in Thika, Kiambu and across Kenya. Ogenix Technologies provides fibre internet, Wi-Fi installation, router configuration and business networking solutions.";
+
+  let metaDescription = document.querySelector(
+    'meta[name="description"]'
+  );
+
+  if (!metaDescription) {
+    metaDescription = document.createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+
+  metaDescription.setAttribute("content", description);
+
+  /* =========================
+     PAGE
+  ========================= */
+
   return (
     <>
-      <NavbarPage />
-
       {/* HERO */}
 
       <section className="pt-36 pb-24 bg-gradient-to-br from-[#031B4E] via-[#062B78] to-[#0A53C1] overflow-hidden">
-
         <div className="max-w-5xl mx-auto px-6 text-center">
-
-          {/* Left */}
 
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: .8 }}
+            transition={{ duration: 0.8 }}
           >
-
             <span className="uppercase tracking-[5px] text-cyan-300 font-semibold">
-              Internet Installation
+              Internet Installation in Thika
             </span>
 
             <h1 className="text-5xl lg:text-7xl font-black text-white mt-6 leading-tight">
-              Fast, Reliable &
+              Fast, Reliable & Professional
               <br />
-              Professional Internet
-              <br />
-              Installation
+              Internet Installation
             </h1>
 
             <p className="text-blue-100 text-xl mt-8 leading-9">
-              Ogenix Technologies delivers dependable fibre and wireless
-              internet solutions for homes, apartments, offices,
-              schools and businesses across Kenya.
+              Ogenix Technologies provides dependable fibre and wireless
+              internet installation solutions for homes, apartments,
+              offices, schools and businesses in Thika, Kiambu and
+              across Kenya.
             </p>
 
-            <div className="flex flex-wrap gap-5 mt-10">
+            <div className="flex flex-wrap justify-center gap-5 mt-10">
 
               <Link
                 to="/contact"
@@ -119,36 +142,32 @@ export default function InternetInstallation() {
 
             </div>
 
-            <div className="grid grid-cols-2 gap-5 mt-12">
+            <div className="grid sm:grid-cols-2 gap-5 mt-12">
 
-              <div className="flex items-center gap-3 text-white">
+              <div className="flex items-center gap-3 text-white justify-center sm:justify-start">
                 <Clock className="text-cyan-300" />
                 Same Day Installation
               </div>
 
-              <div className="flex items-center gap-3 text-white">
+              <div className="flex items-center gap-3 text-white justify-center sm:justify-start">
                 <ShieldCheck className="text-cyan-300" />
                 Quality Equipment
               </div>
 
-              <div className="flex items-center gap-3 text-white">
+              <div className="flex items-center gap-3 text-white justify-center sm:justify-start">
                 <Wifi className="text-cyan-300" />
                 Fast Wi-Fi Coverage
               </div>
 
-              <div className="flex items-center gap-3 text-white">
+              <div className="flex items-center gap-3 text-white justify-center sm:justify-start">
                 <MapPin className="text-cyan-300" />
-                Available Across Kenya
+                Thika, Kiambu & Kenya
               </div>
 
             </div>
-
           </motion.div>
 
-          {/* Right */}
-
         </div>
-
       </section>
 
       {/* RESIDENTIAL & BUSINESS */}
@@ -160,17 +179,18 @@ export default function InternetInstallation() {
           <div className="text-center mb-16">
 
             <span className="uppercase tracking-[5px] text-blue-600 font-semibold">
-              Our Solutions
+              Our Internet Solutions
             </span>
 
             <h2 className="text-5xl font-bold mt-5 text-slate-900">
-              Internet Solutions For Everyone
+              Internet Solutions For Homes & Businesses
             </h2>
 
             <p className="text-slate-600 mt-6 max-w-3xl mx-auto leading-8">
               Whether you need reliable internet for your home or a
-              high-performance business network, we provide solutions
-              designed for speed, reliability and future growth.
+              high-performance business network, Ogenix Technologies
+              provides solutions designed for speed, reliability and
+              future growth.
             </p>
 
           </div>
@@ -188,13 +208,14 @@ export default function InternetInstallation() {
               />
 
               <h2 className="text-3xl font-bold mb-5">
-                Residential Internet
+                Residential Internet Installation
               </h2>
 
               <p className="text-slate-600 leading-8">
                 Enjoy uninterrupted streaming, gaming, remote work,
                 online learning and smart home connectivity with
-                professionally installed high-speed internet.
+                professionally installed high-speed internet and
+                reliable Wi-Fi coverage.
               </p>
 
             </motion.div>
@@ -210,13 +231,13 @@ export default function InternetInstallation() {
               />
 
               <h2 className="text-3xl font-bold mb-5">
-                Business Internet
+                Business Internet Installation
               </h2>
 
               <p className="text-slate-600 leading-8">
                 Reliable enterprise internet and networking solutions
                 for offices, schools, hospitals, hotels and commercial
-                buildings with secure, scalable infrastructure.
+                buildings with secure and scalable infrastructure.
               </p>
 
             </motion.div>
@@ -226,7 +247,8 @@ export default function InternetInstallation() {
         </div>
 
       </section>
-            {/* WHAT'S INCLUDED */}
+
+      {/* WHAT'S INCLUDED */}
 
       <section className="py-24 bg-slate-100">
 
@@ -239,7 +261,7 @@ export default function InternetInstallation() {
             </span>
 
             <h2 className="text-5xl font-bold mt-5 text-slate-900">
-              Everything You Need
+              Complete Internet Installation Services
             </h2>
 
           </div>
@@ -286,7 +308,7 @@ export default function InternetInstallation() {
             </span>
 
             <h2 className="text-5xl font-bold mt-5 text-slate-900">
-              Installation Process
+              Professional Internet Installation Process
             </h2>
 
           </div>
@@ -302,15 +324,11 @@ export default function InternetInstallation() {
               >
 
                 <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-
                   {index + 1}
-
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900">
-
                   {step}
-
                 </h3>
 
               </motion.div>
@@ -334,8 +352,14 @@ export default function InternetInstallation() {
           </span>
 
           <h2 className="text-5xl font-bold mt-5 text-slate-900">
-            Brands We Use
+            Reliable Networking Brands
           </h2>
+
+          <p className="text-slate-600 mt-6 max-w-2xl mx-auto leading-8">
+            We work with trusted networking equipment manufacturers
+            to provide reliable connectivity and professional network
+            installations.
+          </p>
 
           <div className="flex flex-wrap justify-center gap-5 mt-12">
 
@@ -369,7 +393,7 @@ export default function InternetInstallation() {
             </span>
 
             <h2 className="text-5xl font-bold mt-5 text-slate-900">
-              Why Choose Us?
+              Why Choose Ogenix for Internet Installation?
             </h2>
 
           </div>
@@ -415,7 +439,7 @@ export default function InternetInstallation() {
           <div className="text-center mb-16">
 
             <span className="uppercase tracking-[5px] text-blue-600 font-semibold">
-              FAQ
+              Internet Installation FAQ
             </span>
 
             <h2 className="text-5xl font-bold mt-5 text-slate-900">
@@ -434,15 +458,11 @@ export default function InternetInstallation() {
               >
 
                 <h3 className="text-2xl font-bold text-slate-900">
-
                   {faq.question}
-
                 </h3>
 
                 <p className="text-slate-600 mt-4 leading-8">
-
                   {faq.answer}
-
                 </p>
 
               </div>
@@ -466,7 +486,7 @@ export default function InternetInstallation() {
           </span>
 
           <h2 className="text-5xl font-bold mt-5 text-slate-900">
-            Explore More Solutions
+            Explore More ICT & Security Solutions
           </h2>
 
           <div className="flex flex-wrap justify-center gap-5 mt-12">
@@ -505,7 +525,7 @@ export default function InternetInstallation() {
         <div className="max-w-5xl mx-auto px-6 text-center">
 
           <h2 className="text-5xl font-bold text-white">
-            Ready For High-Speed Internet?
+            Need Internet Installation in Thika?
           </h2>
 
           <p className="text-blue-100 text-xl mt-6 leading-9">
@@ -538,7 +558,6 @@ export default function InternetInstallation() {
       <Footer />
       <WhatsAppButton />
       <ScrollTop />
-
     </>
   );
 }

@@ -1,0 +1,209 @@
+.pricing{
+    padding:100px 8%;
+    background:#f8fafc;
+}
+
+.pricing-header{
+    text-align:center;
+    margin-bottom:60px;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.pricing-header span{
+    color:#2563eb;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:14px;
+}
+
+.pricing-header h2{
+    font-size:48px;
+    margin:20px 0;
+    color:#0f172a;
+    line-height:1.2;
+}
+
+.pricing-header p{
+    color:#64748b;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.pricing-card{
+    position:relative;
+    background:#fff;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    transition:.35s;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.pricing-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 45px rgba(37,99,235,.18);
+}
+
+.featured{
+    border:3px solid #2563eb;
+}
+
+.popular{
+    position:absolute;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#2563eb;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.pricing-card h3{
+    color:#2563eb;
+    font-size:30px;
+}
+
+.pricing-card h1{
+    font-size:42px;
+    margin:20px 0;
+    color:#0f172a;
+}
+
+.pricing-card p{
+    color:#64748b;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+.pricing-card button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+    font-size:16px;
+    transition:.3s;
+}
+
+.pricing-card button:hover{
+    background:#1d4ed8;
+}
+
+/* ===================== */
+/* Tablet */
+/* ===================== */
+
+@media (max-width:991px){
+
+    .pricing{
+        padding:80px 6%;
+    }
+
+    .pricing-header h2{
+        font-size:40px;
+    }
+
+    .pricing-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+/* ===================== */
+/* Mobile */
+/* ===================== */
+
+@media (max-width:768px){
+
+    .pricing{
+        padding:70px 5%;
+    }
+
+    .pricing-header{
+        margin-bottom:45px;
+    }
+
+    .pricing-header h2{
+        font-size:34px;
+    }
+
+    .pricing-header p{
+        font-size:16px;
+    }
+
+    .pricing-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .pricing-card{
+        padding:35px 25px;
+    }
+
+    .pricing-card h3{
+        font-size:28px;
+    }
+
+    .pricing-card h1{
+        font-size:38px;
+    }
+
+}
+
+/* ===================== */
+/* Small Phones */
+/* ===================== */
+
+@media (max-width:480px){
+
+    .pricing{
+        padding:60px 20px;
+    }
+
+    .pricing-header span{
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .pricing-header h2{
+        font-size:28px;
+    }
+
+    .pricing-header p{
+        font-size:15px;
+    }
+
+    .pricing-card{
+        padding:28px 20px;
+        border-radius:18px;
+    }
+
+    .pricing-card h3{
+        font-size:24px;
+    }
+
+    .pricing-card h1{
+        font-size:34px;
+    }
+
+    .pricing-card button{
+        padding:14px;
+        font-size:15px;
+    }
+
+}

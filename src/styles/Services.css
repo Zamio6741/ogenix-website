@@ -1,0 +1,187 @@
+.services{
+    padding:100px 8%;
+    background:#f7f9fc;
+}
+
+.services-title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.services-title span{
+    color:#1d5eff;
+    letter-spacing:4px;
+    font-weight:700;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+.services-title h2{
+    font-size:48px;
+    margin:20px 0;
+    color:#0f172a;
+    line-height:1.2;
+}
+
+.services-title p{
+    color:#64748b;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:#fff;
+    border-radius:20px;
+    padding:40px 30px;
+    transition:.35s;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+.service-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 45px rgba(29,94,255,.18);
+}
+
+.service-icon{
+    width:80px;
+    height:80px;
+    background:#eaf1ff;
+    color:#1d5eff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:18px;
+    margin-bottom:25px;
+    transition:.3s;
+}
+
+.service-card:hover .service-icon{
+    background:#1d5eff;
+    color:#fff;
+}
+
+.service-card h3{
+    margin-bottom:15px;
+    color:#111827;
+    font-size:24px;
+}
+
+.service-card p{
+    color:#64748b;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* ========================= */
+/* Tablet */
+/* ========================= */
+
+@media (max-width:991px){
+
+    .services{
+        padding:80px 6%;
+    }
+
+    .services-title{
+        margin-bottom:50px;
+    }
+
+    .services-title h2{
+        font-size:40px;
+    }
+
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+}
+
+/* ========================= */
+/* Mobile */
+/* ========================= */
+
+@media (max-width:768px){
+
+    .services{
+        padding:70px 5%;
+    }
+
+    .services-title h2{
+        font-size:34px;
+    }
+
+    .services-title p{
+        font-size:16px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .service-card{
+        padding:30px 24px;
+    }
+
+    .service-icon{
+        width:70px;
+        height:70px;
+        margin-bottom:20px;
+    }
+
+    .service-card h3{
+        font-size:22px;
+    }
+
+}
+
+/* ========================= */
+/* Small Phones */
+/* ========================= */
+
+@media (max-width:480px){
+
+    .services{
+        padding:60px 20px;
+    }
+
+    .services-title span{
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .services-title h2{
+        font-size:28px;
+    }
+
+    .services-title p{
+        font-size:15px;
+    }
+
+    .service-card{
+        padding:25px 20px;
+        border-radius:18px;
+    }
+
+    .service-icon{
+        width:65px;
+        height:65px;
+    }
+
+    .service-card h3{
+        font-size:20px;
+    }
+
+    .service-card p{
+        font-size:15px;
+    }
+
+}

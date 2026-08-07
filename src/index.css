@@ -1,0 +1,31 @@
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+img {
+  transition: transform 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@import "tailwindcss";

@@ -1,62 +1,69 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logos/ogenix-logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
 
-  const links = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "About", href: "#about", id: "about" },
-    { name: "Services", href: "#services", id: "services" },
-    { name: "Pricing", href: "#pricing", id: "pricing" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Contact", href: "#contact", id: "contact" },
-  ];
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-
-      const sections = document.querySelectorAll("section[id]");
-
-      sections.forEach((section) => {
-        const top = section.offsetTop - 120;
-        const height = section.offsetHeight;
-        const id = section.getAttribute("id");
-
-        if (
-          window.scrollY >= top &&
-          window.scrollY < top + height
-        ) {
-          setActive(id);
-        }
-      });
     };
 
     window.addEventListener("scroll", handleScroll);
+
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const handleMobileClick = () => {
+    setMenuOpen(false);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#041E5A]/85 backdrop-blur-xl shadow-2xl"
+          ? "bg-[#041E5A]/90 backdrop-blur-xl shadow-2xl"
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
-        <a href="#home" className="flex items-center gap-3">
+        {/* LOGO */}
+
+        <Link
+          to="/"
+          onClick={handleMobileClick}
+          className="flex items-center gap-3"
+        >
           <img
             src={logo}
-            alt="Ogenix"
+            alt="Ogenix Technologies"
             className="w-12 h-12 object-contain"
           />
 
@@ -69,46 +76,37 @@ function Navbar() {
               TECHNOLOGIES
             </p>
           </div>
-        </a>
+        </Link>
 
-        {/* Desktop */}
+        {/* DESKTOP NAVIGATION */}
+
         <ul className="hidden lg:flex items-center gap-10">
-
           {links.map((link) => (
-            <li key={link.id}>
-              <a
-                href={link.href}
-                className={`relative font-medium transition-all duration-300
-
-                ${
-                  active === link.id
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                className={`relative font-medium transition-all duration-300 ${
+                  isActive(link.path)
                     ? "text-cyan-300"
                     : "text-white hover:text-cyan-300"
-                }
-
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:h-[2px]
-                after:bg-cyan-400
-                after:transition-all
-                after:duration-300
-
-                ${
-                  active === link.id
-                    ? "after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }
-                `}
+                }`}
               >
                 {link.name}
-              </a>
+
+                <span
+                  className={`absolute left-0 -bottom-2 h-[2px] bg-cyan-400 transition-all duration-300 ${
+                    isActive(link.path)
+                      ? "w-full"
+                      : "w-0"
+                  }`}
+                />
+              </Link>
             </li>
           ))}
-
         </ul>
 
-        {/* Desktop Quote Button */}
+        {/* GET FREE QUOTE */}
+
         <Link
           to="/contact"
           className="hidden lg:flex items-center justify-center px-7 py-3 rounded-xl bg-cyan-500 text-white font-semibold shadow-lg transition-all duration-300 hover:bg-cyan-400 hover:scale-105"
@@ -116,52 +114,54 @@ function Navbar() {
           Get Free Quote
         </Link>
 
-        {/* Mobile Toggle */}
+        {/* MOBILE BUTTON */}
+
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden text-white"
+          aria-label="Toggle navigation"
         >
           {menuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
-
       </nav>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
+
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-96" : "max-h-0"
+          menuOpen ? "max-h-[500px]" : "max-h-0"
         }`}
       >
         <div className="bg-[#041E5A]/95 backdrop-blur-xl border-t border-blue-800">
-
           <ul className="flex flex-col gap-5 p-6">
 
             {links.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  onClick={handleMobileClick}
                   className={`block transition ${
-                    active === link.id
+                    isActive(link.path)
                       ? "text-cyan-300"
                       : "text-white hover:text-cyan-300"
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
 
-            <Link
-              to="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="mt-2 bg-cyan-500 hover:bg-cyan-400 py-3 rounded-xl text-center text-white font-semibold"
-            >
-              Get Free Quote
-            </Link>
+            <li>
+              <Link
+                to="/contact"
+                onClick={handleMobileClick}
+                className="block mt-2 bg-cyan-500 hover:bg-cyan-400 py-3 rounded-xl text-center text-white font-semibold transition"
+              >
+                Get Free Quote
+              </Link>
+            </li>
 
           </ul>
-
         </div>
       </div>
     </header>

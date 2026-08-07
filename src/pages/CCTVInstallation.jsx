@@ -40,25 +40,22 @@ const steps = [
 
 const cameraTypes = [
   {
-    icon: <CircleDot size={34} />,
+    icon: <Camera size={28} />,
     title: "Bullet Cameras",
     text: "Perfect for outdoor surveillance with long viewing distances.",
   },
-
   {
-    icon: <Camera size={34} />,
+    icon: <CircleDot size={28} />,
     title: "Dome Cameras",
     text: "Ideal for offices, shops, schools and indoor monitoring.",
   },
-
   {
-    icon: <Move size={34} />,
+    icon: <Move size={28} />,
     title: "PTZ Cameras",
     text: "Pan, Tilt and Zoom cameras for monitoring large areas.",
   },
-
   {
-    icon: <Wifi size={34} />,
+    icon: <Wifi size={28} />,
     title: "Wireless Cameras",
     text: "Quick installation with secure Wi-Fi connectivity.",
   },

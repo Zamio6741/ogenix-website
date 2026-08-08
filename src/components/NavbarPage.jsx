@@ -14,7 +14,9 @@ function NavbarPage() {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const links = [
@@ -34,16 +36,17 @@ function NavbarPage() {
           : "bg-[#041E5A]"
       }`}
     >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8">
-
-        {/* Logo */}
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        {/* LOGO */}
         <NavLink
           to="/"
+          onClick={() => setMenuOpen(false)}
           className="flex items-center gap-3"
         >
           <img
             src={logo}
-            alt="Ogenix"
+            alt="Ogenix Technologies"
             className="w-12 h-12 object-contain"
           />
 
@@ -58,7 +61,7 @@ function NavbarPage() {
           </div>
         </NavLink>
 
-        {/* Desktop */}
+        {/* DESKTOP NAVIGATION */}
         <ul className="hidden lg:flex items-center gap-10">
           {links.map((link) => (
             <li key={link.to}>
@@ -78,7 +81,7 @@ function NavbarPage() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* DESKTOP CTA */}
         <NavLink
           to="/contact"
           className="hidden lg:flex items-center justify-center px-7 py-3 rounded-xl bg-cyan-500 text-white font-semibold hover:bg-cyan-400 transition"
@@ -86,24 +89,24 @@ function NavbarPage() {
           Get Free Quote
         </NavLink>
 
-        {/* Mobile Button */}
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden text-white"
+          aria-label="Toggle navigation menu"
         >
           {menuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
 
       </nav>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <div
         className={`overflow-hidden lg:hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96" : "max-h-0"
+          menuOpen ? "max-h-[500px]" : "max-h-0"
         }`}
       >
         <div className="bg-[#041E5A] border-t border-blue-800">
-
           <ul className="flex flex-col gap-5 p-6">
 
             {links.map((link) => (
@@ -112,9 +115,11 @@ function NavbarPage() {
                   to={link.to}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    isActive
-                      ? "text-cyan-300"
-                      : "text-white hover:text-cyan-300"
+                    `block transition ${
+                      isActive
+                        ? "text-cyan-300"
+                        : "text-white hover:text-cyan-300"
+                    }`
                   }
                 >
                   {link.name}
@@ -122,16 +127,17 @@ function NavbarPage() {
               </li>
             ))}
 
-            <NavLink
-              to="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="bg-cyan-500 hover:bg-cyan-400 text-center py-3 rounded-xl text-white font-semibold"
-            >
-              Get Free Quote
-            </NavLink>
+            <li>
+              <NavLink
+                to="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="block bg-cyan-500 hover:bg-cyan-400 text-center py-3 rounded-xl text-white font-semibold transition"
+              >
+                Get Free Quote
+              </NavLink>
+            </li>
 
           </ul>
-
         </div>
       </div>
     </header>

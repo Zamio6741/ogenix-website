@@ -52,6 +52,7 @@ export default function Footer() {
 
         </div>
 
+
         {/* Services */}
         <div className="footer-column">
 
@@ -68,20 +69,36 @@ export default function Footer() {
 
         </div>
 
+
         {/* Quick Links */}
         <div className="footer-column">
 
           <h4>Quick Links</h4>
 
           <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">Internet Packages</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li>
+              <a href="#about">About Us</a>
+            </li>
+
+            <li>
+              <a href="#services">Services</a>
+            </li>
+
+            <li>
+              <a href="#pricing">Internet Packages</a>
+            </li>
+
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+              <a href="#contact">Contact Us</a>
+            </li>
           </ul>
 
         </div>
+
 
         {/* Contact */}
         <div className="footer-column">
@@ -110,11 +127,11 @@ export default function Footer() {
               Mon - Fri: 8:00 AM - 4:00 PM
             </p>
 
-            <p style={{ paddingLeft: "26px" }}>
+            <p className="footer-indent">
               Sun: 8:00 AM - 12:00 PM
             </p>
 
-            <p style={{ paddingLeft: "26px" }}>
+            <p className="footer-indent">
               Saturday: Closed
             </p>
 
@@ -124,6 +141,8 @@ export default function Footer() {
 
       </div>
 
+
+      {/* Copyright */}
       <div className="footer-bottom">
 
         <p>
